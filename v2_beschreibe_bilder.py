@@ -1,13 +1,19 @@
 
 # -*- coding: utf-8 -*-
+import base64
+import csv
+import json
+import mimetypes
+import re
+import shutil
 from pathlib import Path
-import shul, base64, mimetypes, json, csv, re
+
 from openai import OpenAI
 
 # -------------------- Settings --------------------
-ROOT_DIR = Path("/Users/uni/Desktop/BIP_Summerschool/Objektbilder")
+ROOT_DIR = Path("/Users/davidassmann/Desktop/GuI/Objektbilder")
 PREFIXES = ["1-1997-0007", "1-1997-0011"]  # adjust as needed
-DEST_DIR = Path("/Users/uni/Desktop/BIP_Summerschool/FilteredImages")
+DEST_DIR = Path("/Users/davidassmann/Desktop/GuI/GefilterteteBilder")
 
 OUT_CSV_LONG = Path("descriptions_long.csv")
 OUT_TXT      = Path("catalog_descriptions.txt")
