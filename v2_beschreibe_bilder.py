@@ -12,7 +12,7 @@ from openai import OpenAI
 
 # -------------------- Settings --------------------
 ROOT_DIR = Path("/Users/davidassmann/Desktop/GuI/Objektbilder")
-PREFIXES = ["1-1997-0007", "1-1997-0011"]  # adjust as needed
+PREFIXES = ["1-2024-0062"]  # adjust as needed
 DEST_DIR = Path("/Users/davidassmann/Desktop/GuI/GefilterteteBilder")
 
 OUT_CSV_LONG = Path("descriptions_long.csv")
