@@ -1,22 +1,23 @@
 """
-Anbindung an den Textdienst in unserem Fall an OpenAi und für die Aufbereitung der Ergebnisse.
+Connection to the text service (in our case OpenAI) and preparation of the results.
 
-Funktionen:
-- `describe_object(object_number, image_paths, lang, max_images, keywords)`: 
-  * Schickt pro Objekt alle ausgewählten Ansichten in einem Auftrag.
-  * Erwartet ein einzelnes JSON-Objekt als Antwort.
-  * Ergänzt Standardfelder (Objektnummer, Produzentenlabel, verwendete Bildanzahl).
-  * Säubert Werte (z. B. entfernt " / not available") und stellt die Klassifikation eindeutig.
-  * Erzeugt bei Bedarf einen kurzen, sachlichen Absatz (falls kein Text geliefert wurde).
+Functions:
+- `describe_object(object_number, image_paths, lang, max_images, keywords)`:
+  * Sends all selected views per object in a single request.
+  * Expects a single JSON object as response.
+  * Adds standard fields (object number, producer label, number of images used).
+  * Cleans values (e.g., removes " / not available") and ensures clear classification.
+  * Generates a short, factual paragraph if no description text is provided.
 
-Interne Helfer:
-- Normalisierung von Leerzeichen.
-- Standardisierung von Feldwerten.
-- Erzeugen eines kompakten Beschreibungstextes im Katalogstil.
+Internal helpers:
+- Normalization of whitespace.
+- Standardization of field values.
+- Creation of a concise catalog-style description text.
 
-Ziel:
-- Ein Auftrag pro Objekt, robuste Auswertung der Antwort, konsistente Felder für nachgelagerte Formatierer.
+Goal:
+- One request per object, robust parsing of the response, consistent fields for downstream formatting.
 """
+
 
 import json, re, os
 from pathlib import Path

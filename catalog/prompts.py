@@ -1,22 +1,23 @@
 """
-Erzeugt die Prompts mit klaren Regeln gegen Spekulation.
+Connection to the text service, in our case OpenAI, and preparation of the results.
 
-Enthält:
-- build_prompt(object_number, keywords, lang):
-  Baut den Eingabetext für das Modell (DE/EN) mit festen Vorgaben:
-  • Genau eine Klassifikation: TYPEWRITER oder COMMUNICATION TOOL (optional „(probably)”).
-  • Nur sichtbare Merkmale benennen; sonst „not available“.
-  • Nicht relevante Felder auf „not applicable“ setzen.
-  • Sachlicher Katalogstil, kurze und überprüfbare Formulierungen.
+Functions:
+- `describe_object(object_number, image_paths, lang, max_images, keywords)`:
+  * Sends all selected views of an object in a single request.
+  * Expects a single JSON object in response.
+  * Adds standard fields (object number, generator label, number of images used).
+  * Cleans values (e.g., removes " / not available") and enforces a clear classification.
+  * Generates a short, factual paragraph if no description text was provided.
 
-- SYSTEM_INSTRUCTION:
-  Zusätzliche Anweisung: genau EIN JSON-Objekt, keine Schrägstriche in Feldern,
-  klare Werte („not available“ / „not applicable“).
+Internal helpers:
+- Normalization of whitespace.
+- Standardization of field values.
+- Generation of a concise catalog-style description text.
 
-Ziel:
-Reproduzierbare, prüfbare Katalogeinträge ohne Mutmaßungen.
-
+Goal:
+- One request per object, robust evaluation of the response, consistent fields for downstream formatting.
 """
+
 
 from typing import Literal
 

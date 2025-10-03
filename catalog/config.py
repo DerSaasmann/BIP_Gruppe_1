@@ -1,8 +1,6 @@
 """
-
-Zentrale Einstellungen für das Projekt 
-(Dateitypen, Modell, Standard-Wörter, Produzentenlabel).
-
+Central settings for the project
+(file types, model, default keywords, producer label).
 """
 
 from pathlib import Path
@@ -10,8 +8,8 @@ from pathlib import Path
 EXTS = {".jpg", ".jpeg", ".png", ".tif", ".tiff"}
 CASE_INSENSITIVE = True
 
-# OpenAI Modell
+# OpenAI model
 MODEL = "gpt-4o-mini"
 
-# Schlüsselwörter, die wir an jede Anfrage hängen
+# Keywords that we append to every request
 DEFAULT_KEYWORDS = "typewriter, communication"

@@ -1,20 +1,20 @@
 """
-Gesamtablauf der Verarbeitung.
+Overall processing workflow.
 
-Schritte:
-1) Bilddateien je Inventar-Präfix ermitteln und zu Objekten gruppieren.
-2) Gefundene Dateien in den Zielordner kopieren (mit Duplikatschutz).
-3) Für jedes Objekt einen Auftrag mit allen zugehörigen Bildern erstellen und auswerten.
-4) Ergebnisse ausgeben: Terminal (Kurzübersicht), TXT (lesbare Beschreibung) und CSV.
+Steps:
+1) Identify image files for each inventory prefix and group them into objects.
+2) Copy found files to the destination folder (with duplicate protection).
+3) For each object, create a request with all associated images and evaluate the result.
+4) Output results: terminal (short overview), TXT (readable description), and CSV.
 
-Funktion:
+Function:
 - run_pipeline(root_dir, dest_dir, prefixes, out_txt, out_csv, lang, max_images)
 
-Ziel:
-- Übersichtlicher, reproduzierbarer Ablauf ohne doppelte Logik.
-- Saubere Trennung von Dateizugriff, Modellaufruf und Ausgabeformatierung.
-
+Goal:
+- Clear, reproducible workflow without duplicated logic.
+- Clean separation of file access, model calls, and output formatting.
 """
+
 from pathlib import Path
 from typing import List, Literal
 import csv

@@ -1,5 +1,4 @@
 """
-Initialisiert das Paket `catalog`.
-
+Initializes the `catalog` package.
 """
 __all__ = []

@@ -1,15 +1,14 @@
 """
-Sprachbausteine (Deutsch/Englisch) für Ausgaben.
+Language building blocks (German/English) for outputs.
 
-Enthält:
-- Überschriften (Terminal, TXT, CSV)
-- Feldnamen pro Sprache
-- Feld-Reihenfolge
-- Einfache Wortlisten zur Vereinheitlichung (z. B. Farben, Materialien)
-- Hilfsfunktionen für die Anzeige, z. B. Klassifikationen
+Includes:
+- Headings (Terminal, TXT, CSV)
+- Field names per language
+- Field order
+- Simple word lists for standardization (e.g., colors, materials)
+- Helper functions for display, e.g., classifications
 
-Ziel: Einheitliche, sachliche Formulierungen in beiden Sprachen.
-
+Goal: Consistent, factual wording in both languages.
 """
 
 import re

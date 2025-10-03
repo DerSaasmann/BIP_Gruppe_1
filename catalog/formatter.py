@@ -1,20 +1,20 @@
 """
-Ausgabeformatierung für Text (Terminal/TXT) und im CSV Format.
+Output formatting for text (Terminal/TXT) and CSV format.
 
-Funktionen:
+Functions:
 - make_text_block(entry, lang):
-  Erzeugt einen kompakten, gut lesbaren Textblock.
-  Verbirgt "not available"/"not applicable" in der Lesefassung und nutzt lokalisierte Feldnamen.
+  Creates a compact, human-readable text block.
+  Hides "not available"/"not applicable" in the readable output and uses localized field names.
 
 - explode_to_long_rows(entry, lang):
-  Wandelt einen Datensatz in mehrere CSV-Zeilen (eine Zeile pro Feld),
-  geeignet für die flexible Weiterverarbeitung in Tabellenkalkulationsprogrammen.
+  Converts a dataset into multiple CSV rows (one row per field),
+  suitable for flexible further processing in spreadsheet software.
 
-Ziel:
-- Sachliche Textausgabe im Katalogstil.
-- CSV-Struktur, die sich leicht filtern, sortieren und weiterverarbeiten lässt.
-
+Goal:
+- Factual text output in catalogue style.
+- CSV structure that can be easily filtered, sorted, and further processed.
 """
+
 
 from typing import Dict, Any, List, Literal
 from .labels import HEADINGS, FIELD_LABELS, FIELD_ORDER, de_localize_value, localize_classification_for_display
