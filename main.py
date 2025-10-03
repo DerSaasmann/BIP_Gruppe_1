@@ -1,23 +1,24 @@
 """
-Einstiegspunkt für den Museum Catalogue Builder.
+Entry point for the Museum Catalogue Builder.
 
-Aufgabe:
-- Liest Kommandozeilenargumente (Bildwurzelordner, Zielordner, Präfixe, Sprache, Limits).
-- Übernimmt keine Logik zur Bildverarbeitung oder Textgenerierung.
-- Delegiert den gesamten Ablauf an `catalog.pipeline.run_pipeline(...)`.
+Purpose:
+- Reads command-line arguments (image root folder, destination folder, prefixes, language, limits).
+- Does not contain any image processing or text generation logic.
+- Delegates the entire workflow to `catalog.pipeline.run_pipeline(...)`.
 
-Eingaben in Komandozeile:
---root          Pfad mit den Objektbildern
---dest          Zielordner für Kopien der gefundenen Bilder
---prefix        Eine oder mehrere Inventar-Präfixe (Dateinamen müssen mit "1" beginnen)
---lang          Ausgabesprache: "de" oder "en" wenn keine auswahl automatisch englisch
---max-images    Maximalzahl Bilder pro Objekt, die an das Modell übergeben werden
---out-txt       Pfad für die txt datei
---out-csv       Pfad für die Long-CSV 
+Command-line arguments:
+--root          Path to the folder containing the object images
+--dest          Destination folder for copies of the matched images
+--prefix        One or more object number prefixes (filenames must start with "1")
+--lang          Output language: "de" or "en" (defaults to English if not specified)
+--max-images    Maximum number of images per object to send to the model
+--out-txt       Path for the TXT output file
+--out-csv       Path for the long-format CSV file
 
-Ausgabe:
-- Startet die Pipeline, schreibt TXT und CSV und zeigt eine knappe Zusammenfassung im Terminal.
+Output:
+- Launches the pipeline, writes TXT and CSV outputs, and displays a concise summary in the terminal.
 """
+
 import argparse
 from pathlib import Path
 from catalog.pipeline import run_pipeline
