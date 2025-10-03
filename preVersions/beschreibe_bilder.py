@@ -1,5 +1,4 @@
-# beschreibe_bilder.py
-# Beschreibt alle Bilder in ./bilder und schreibt eine captions.csv
+
 
 import os, base64, csv, mimetypes, glob
 from openai import OpenAI
