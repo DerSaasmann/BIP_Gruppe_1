@@ -1,18 +1,17 @@
 """
+File system helpers: image search, grouping, and copying.
 
-Dateisystem-Helfer: Bildsuche, Gruppierung und Kopieren.
+Functions:
+- `iter_images(root)`: Finds image files within a given root directory.
+- `collect_matches_by_prefix(root, prefixes)`: Groups images by inventory prefix (filenames must start with the prefix).
+- `copy_matched(groups, dest)`: Copies all found files into the destination folder (with duplicate name handling).
+- `encode_image_to_data_url(path)`: Converts an image into a Base64-encoded Data URL for API submission.
 
-Funktionen:
-- `iter_images(root)`: Findet Bilddateien unterhalb eines Wurzelpfads.
-- `collect_matches_by_prefix(root, prefixes)`: Ordnet Bilder nach Inventar-Präfix (Dateinamen müssen mit Präfix beginnen).
-- `copy_matched(groups, dest)`: Kopiert gefundene Dateien in den Zielordner (mit Duplikatschutz).
-- `encode_image_to_data_url(path)`: Wandelt ein Bild in eine Data-URL (Base64) für die Übergabe an den Dienst.
-
-Ziel:
-- Saubere Gruppierung: ein Objekt pro Präfix.
-- Nachvollziehbarkeit: Kopien der verwendeten Bilder liegen zentral vor.
-
+Goal:
+- Clean grouping: one object per prefix.
+- Transparency: copies of all used images are stored centrally for reference.
 """
+
 
 
 from pathlib import Path
